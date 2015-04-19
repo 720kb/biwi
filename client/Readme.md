@@ -10,6 +10,15 @@
 - packaging: node, npm, browserify
 
 
+### Running
+
+    python -m SimpleHTTPServer 3000
+
+
+go to http://localhost:3000
+
+
+##  Finished! Enjoy!
 
 
 ### To develop the project
@@ -17,10 +26,15 @@
     npm install browserify -g
 
 
-
-#### Project setup (we already did this)
+#### Project setup (we already did project setup btw :D )
 
     npm install bitcore --save
+
+
+#### Project setup (UI)
+
+    npm install --save bootstrap
+
 
 
 ---
