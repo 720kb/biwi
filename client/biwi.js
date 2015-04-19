@@ -16,6 +16,8 @@ var ajax = {
 }
 
 
+// Dario's way--
+
 // // biwi = new Biwi()
 // biwi.init()
 // biwi.privateKey_Generate()
@@ -31,19 +33,22 @@ var ajax = {
 // }
 
 
+// easier way
+//
+// biwi.init()
+// biwi.privateKey_Generate()
+//
+// biwi = {}
+// biwi.init = function init() {
+//
+// }
+// biwi.privateKey_Generate = function privateKey_Generate() {
+//
+// }
 
-biwi.init()
-biwi.privateKey_Generate()
 
-biwi = {}
-biwi.init = function init() {
-
-}
-biwi.privateKey_Generate = function privateKey_Generate() {
-
-}
-
-
+// coffeescript
+//
 // class Biwi
 //   constructor: ->
 //     @privateKey = this.generatePrivateKey()
@@ -55,12 +60,9 @@ biwi.privateKey_Generate = function privateKey_Generate() {
 //     @m["m/0/1"]      = privateKey_m_0_1
 
 
-// // generate pvt key
-// var privateKey = new bitcore.PrivateKey()
-// console.log(privateKey.toAddress())
 
 /////////////////////////////////
-// base js
+// base js  (basic way)
 
 var store = {
   privateKey: null
