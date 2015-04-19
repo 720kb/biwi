@@ -64,31 +64,34 @@ var ajax = {
 /////////////////////////////////
 // base js  (basic way)
 
-var store = {
-  privateKey: null
-  lastPath:   0
+init()
+console.log("localstorage:", localStorage)
 
-  // keypairs: [
-  //   "m/0/1",
-  //   "m/0/2",
-  //   "m/0/3",
-  //
-  //   // {
-  //   //   privateKey: "5asdasdasd",
-  //   //   address:    "1antani",
-  //   // },
-  // ]
-}
+///
+
+// window.store = {
+//   privateKey: null,
+//   depth:   0
+// }
+
 
 // generate HD pvt key tree
 function init() {
+  initStorage()
   checkOrGeneratePrivateKey()
   loadLastAddress()
 }
 
-function incrementLastPath() {
-  store.lastPath++
-  return store.lastPath
+function initStorage() {
+  if (!localStorage.depth)
+    localStorage.depth = 0
+  // pvt key ....
+}
+
+function incrementDepth() {
+  localStorage.depth++
+  // window.store.depth++
+  // return store.depth
 }
 
 function checkOrGeneratePrivateKey() {
@@ -96,37 +99,36 @@ function checkOrGeneratePrivateKey() {
 
   if (localStorageNotPresent()) {
     rootPrivateKey = generateRootPrivateKey()
-  } else {
-    childPrivateKey = generateChildPrivateKey('m/0/1')
-    childPrivateKey = loadLastChildPrivateKey(rootPrivateKey)
+    localStorage.privateKey = rootPrivateKey.toString()
+    incrementDepth()
+    checkOrGeneratePrivateKey()
+  }
+  else {
+    depth           = localStorage.depth
+    rootPrivateKey  = generatePrivateKey(localStorage.privateKey)
+    childPrivateKey = loadLastChildPrivateKey(localStorage.depth, rootPrivateKey)
+    //childPrivateKey = loadLastChildPrivateKey(rootPprivaterivateKey)
   }
 
   rootPrivateKey
  // todo
 }
 
-
 function localStorageNotPresent() {
   return !localStorage.rootPrivateKey
 }
 
+function loadLastChildPrivateKey(depth, rootPrivateKey) {
+  return rootPrivateKey.derive("m/0/"+depth)
+}
 
-function loadLastChildPrivateKey(rootPrivateKey) {
-  return rootPrivateKey.hdPublicKey
+function loadLastChildPublicKey(depth, rootPrivateKey) {
+  return rootPrivateKey.derive("m/0/"+depth).hdPublicKey
     .publicKey.toAddress().toString()
 }
 
-function generateChildPrivateKey(depth) {
-  var path = incrementLastPath()
-  derivePrivateKey("m/0/"+depth)
-}
-
-function generateRootPrivateKey(path) {
-  return new bitcore.HDPrivateKey()
-}
-
-function derivePrivateKey(path) {
-  return store.privateKey.derive(path)
+function generateRootPrivateKey(keyString) {
+  return new bitcore.HDPrivateKey(keyString)
 }
 
 

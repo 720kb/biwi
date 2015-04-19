@@ -19921,18 +19921,120 @@ var ajax = {
 }
 
 
-// // generate pvt key
-// var privateKey = new bitcore.PrivateKey()
-// console.log(privateKey.toAddress())
+// Dario's way--
+
+// // biwi = new Biwi()
+// biwi.init()
+// biwi.privateKey_Generate()
+
+// var BiWi = function Biwi() {
+//   biwi.init = function init() {
+//
+//   }
+//   biwi.privateKey_Generate = function privateKey_Generate() {
+//
+//   }
+//
+// }
+
+
+// easier way
+//
+// biwi.init()
+// biwi.privateKey_Generate()
+//
+// biwi = {}
+// biwi.init = function init() {
+//
+// }
+// biwi.privateKey_Generate = function privateKey_Generate() {
+//
+// }
+
+
+// coffeescript
+//
+// class Biwi
+//   constructor: ->
+//     @privateKey = this.generatePrivateKey()
+//     @m["m/0/1"] = null
+//
+//   generatePrivateKey = ->
+//     @privateKEy      = new bitcore.HDPrivateKey()
+//     privateKey_m_0_1 = hdPrivateKey.derive('m/0/1')
+//     @m["m/0/1"]      = privateKey_m_0_1
+
+
+
+/////////////////////////////////
+// base js  (basic way)
+
+init()
+console.log("localstorage:", localStorage)
+
+///
+
+window.store = {
+  privateKey: null,
+  depth:   0
+}
 
 // generate HD pvt key tree
-var hdPrivateKey = new bitcore.HDPrivateKey()
-var privateKey = hdPrivateKey.derive('m/0/1')
+function init() {
+  checkOrGeneratePrivateKey()
+  loadLastAddress()
+}
 
-// store private key (and address?)
-localStorage.privateKey      = hdPrivateKey.toString()
-localStorage.addresses       = {}
-localStorage.addresses.m_0_1 = privateKey.hdPublicKey.publicKey.toAddress().toString()
+function incrementDepth() {
+  store.depth++
+  // return store.depth
+}
+
+function checkOrGeneratePrivateKey() {
+  var rootPrivateKey
+
+  if (localStorageNotPresent()) {
+    rootPrivateKey = generateRootPrivateKey()
+    localStorage.privateKey = rootPrivateKey.toString()
+    incrementDepth()
+    checkOrGeneratePrivateKey()
+  }
+  else {
+    depth           = localStorage.depth
+    rootPrivateKey  = generatePrivateKey(localStorage.privateKey)
+    childPrivateKey = loadLastChildPrivateKey(depth, rootPrivateKey)
+    //childPrivateKey = loadLastChildPrivateKey(rootPprivaterivateKey)
+  }
+
+  rootPrivateKey
+ // todo
+}
+
+function localStorageNotPresent() {
+  return !localStorage.rootPrivateKey
+}
+
+function loadLastChildPrivateKey(depth, rootPrivateKey) {
+  return rootPrivateKey.derive("m/0/"+depth)
+}
+
+function loadLastChildPublicKey(depth, rootPrivateKey) {
+  return rootPrivateKey.derive("m/0/"+depth).hdPublicKey
+    .publicKey.toAddress().toString()
+}
+
+function generateRootPrivateKey(keyString) {
+  return new bitcore.HDPrivateKey(keyString)
+}
+
+
+
+
+
+
+
+
+/////////////
 
 // get address balance
 var balance_url = "https://blockchain.info/q/addressbalance/19e2eU15xKbM9pyDwjFsBJFaSeKoDxp8YT"
