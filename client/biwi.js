@@ -33,49 +33,19 @@ var ajax = {
 // }
 
 
-// easier way
-//
-// biwi.init()
-// biwi.privateKey_Generate()
-//
-// biwi = {}
-// biwi.init = function init() {
-//
-// }
-// biwi.privateKey_Generate = function privateKey_Generate() {
-//
-// }
-
-
-// coffeescript
-//
-// class Biwi
-//   constructor: ->
-//     @privateKey = this.generatePrivateKey()
-//     @m["m/0/1"] = null
-//
-//   generatePrivateKey = ->
-//     @privateKEy      = new bitcore.HDPrivateKey()
-//     privateKey_m_0_1 = hdPrivateKey.derive('m/0/1')
-//     @m["m/0/1"]      = privateKey_m_0_1
-
-
-
 /////////////////////////////////
 // base js  (basic way)
+
+// main.js
+//
 
 init()
 console.log("localstorage:", localStorage)
 
-///
 
-// window.store = {
-//   privateKey: null,
-//   depth:   0
-// }
+// lib/biwi.js
+//
 
-
-// generate HD pvt key tree
 function init() {
   initStorage()
   checkOrGeneratePrivateKey()
@@ -90,8 +60,6 @@ function initStorage() {
 
 function incrementDepth() {
   localStorage.depth++
-  // window.store.depth++
-  // return store.depth
 }
 
 function checkOrGeneratePrivateKey() {
@@ -149,23 +117,3 @@ ajax.get(balance_url, function(data){
 
 address_input = document.querySelector("input[name=btc_address]")
 address_input.innerHTML = localStorage.addresses.m_0_1
-
-
-
-
-
-
-
-
-
-
-
-
-
-// multisig
-// crea keypair(pub) A -> save [KEYPAIR]
-//
-// save:
-// HDW_LEVEL = "0/1" -> "0/n" (1 level)
-// (hierar)
-//
