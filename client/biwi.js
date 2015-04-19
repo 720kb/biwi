@@ -49,7 +49,7 @@ console.log("localstorage:", localStorage)
 function init() {
   initStorage()
   checkOrGeneratePrivateKey()
-  loadLastAddress()
+  //loadLastAddress()
 }
 
 function initStorage() {
@@ -67,13 +67,14 @@ function checkOrGeneratePrivateKey() {
 
   if (localStorageNotPresent()) {
     rootPrivateKey = generateRootPrivateKey()
-    localStorage.privateKey = rootPrivateKey.toString()
+    localStorage.rootPrivateKey = rootPrivateKey.toString()
     incrementDepth()
+    // return
     checkOrGeneratePrivateKey()
   }
   else {
     depth           = localStorage.depth
-    rootPrivateKey  = generatePrivateKey(localStorage.privateKey)
+    rootPrivateKey  = generateRootPrivateKey(localStorage.privateKey)
     childPrivateKey = loadLastChildPrivateKey(localStorage.depth, rootPrivateKey)
     //childPrivateKey = loadLastChildPrivateKey(rootPprivaterivateKey)
   }
@@ -99,7 +100,49 @@ function generateRootPrivateKey(keyString) {
   return new bitcore.HDPrivateKey(keyString)
 }
 
+function getChangeAddress(){
+  rootPrivateKey = localStorage.rootPrivateKey
+  changeAddress = rootPrivateKey.derive("m/0/"+(depth+1))
+  return changeAddress
+}
 
+getUnspentOutput("19e2eU15xKbM9pyDwjFsBJFaSeKoDxp8YT")
+
+function getUnspentOutput(address) {
+  ajax.get("https://blockchain.info/unspent?active="+address+"&format=json&cors=true", function(data){
+    // console.log("utxos", utxos)
+    //
+    // "tx_hash":"31fbdf5e9730e1....427b58effb837",
+    //   "tx_index":84076350,
+    //   "tx_output_n": 1,
+    //   "script":"76a9145ec1c5554a111386...c15dabe4d5e388ac",
+    //   "value": 8928186,
+
+  })
+
+}
+
+
+function payToServer(address, childPrivateKey, amount){
+  changeAddress = getChangeAddress()
+
+
+    // return utxos
+
+  // createAndSignTx(address, utxos)
+
+    // createTransaction
+    // var transaction = new Transaction()
+    //   .from(utxos)          // Feed information about what unspent outputs one can use
+    //   .to(address, amount)  // Add an output with the given amount of satoshis
+    //   .change(changeAddress)      // Sets up a change address where the rest of the funds will go
+    //   .sign(privkeySet)     // Signs all the inputs it can
+
+  // pushTx()
+
+  // ....
+  incrementDepth()
+}
 
 
 
