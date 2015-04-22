@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   $('#pay-btn').on('click', function () {
 
-    $(this).fadeOut(200).addClass('animated slideOutUp');
+    $('#pay-btn, #pay-why').fadeOut(200).addClass('animated slideOutUp');
 
     setTimeout(function () {
 

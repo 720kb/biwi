@@ -1,3 +1,9 @@
+body{
+-webkit-font-smoothing: antialias
+}
+*[desktop=""]{
+  display: none;
+}
 .top{
   min-width:100%;
   margin:0 auto;
@@ -20,6 +26,7 @@
   font-weight: bold;
 }
 .btn-home{
+  border-radius:30px;
   border:none;
   float:none;
   margin:0 auto;
@@ -28,18 +35,36 @@
 .counter{
   min-width:100%;
   margin:0 auto;
-  font-size: 50px;
+  line-height: 70px;
+  font-size: 40px;
   font-weight: bold;
-}
-.coin{
-  font-size:30px;
-  border-radius:100%;
 }
 .hide{
   display: none;
+}
+#pay-why h1{
+  font-size: 90px;
 }
 #pay-content{
   max-width: 500px;
   margin:0 auto;
   float:none;
+}
+.word-break{
+  word-break: break-all;
+}
+/*desktop*/
+@media screen and (max-width:600px) {
+  .desktop {
+    display: none;
+  }
+  .center-mobile{
+    text-align:center;
+  }
+}
+/*mobile*/
+@media screen and (max-width:400px) {
+  .mobile {
+    display: none;
+  }
 }
