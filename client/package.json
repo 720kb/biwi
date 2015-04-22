@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "bitcore": "^0.11.7",
-    "bootstrap": "^3.3.4",
+    "materialize-css": "^0.96.1",
     "zepto": "0.0.4"
   }
 }
