@@ -2,11 +2,14 @@
 <head>
   <title>BiWi</title>
   <link rel="stylesheet"
+  href="node_modules/animate.css/animate.min.css"
+  media="screen" charset="utf-8">
+  <link rel="stylesheet"
   href="node_modules/materialize-css/bin/materialize.css"
-  media="screen" title="no title" charset="utf-8">
+  media="screen" charset="utf-8">
   <link rel="stylesheet"
   href="assets/extra.css"
-  media="screen" title="no title" charset="utf-8">
+  media="screen" charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="grey lighten-4">
@@ -33,9 +36,12 @@
   </div>
   <div class="top top50"></div>
   <div class="row center-align">
-    <button class="toast btn-home rounded waves-effect blue accent-3">
+    <button id="pay-btn" class="toast btn-home rounded waves-effect light-blue accent-4">
       BUY MEGABYTES
     </button>
+  </div>
+  <div id="pay-content" class="container hide">
+    <img src="http://www.ekaterinawalter.com/wp-content/uploads/2013/11/qr_code_vote.jpg" width="150"/>
   </div>
 <!--
   <div class="row">
@@ -91,5 +97,8 @@
 
 -->
 <script src="bundle.js" charset="utf-8" type="text/javascript"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/materialize-css/bin/materialize.js"></script>
+<script src="jquery.binding.js"></script>
 </body>
 </html>

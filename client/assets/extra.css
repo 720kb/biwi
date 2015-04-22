@@ -31,3 +31,11 @@
   font-size: 50px;
   font-weight: bold;
 }
+.hide{
+  display: none;
+}
+#pay-content{
+  max-width: 500px;
+  margin:0 auto;
+  float:none;
+}
