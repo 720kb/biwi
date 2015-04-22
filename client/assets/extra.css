@@ -1,0 +1,33 @@
+.top{
+  min-width:100%;
+  margin:0 auto;
+  float:none;
+}
+.top.top15{
+ min-height:15px;
+}
+.top.top50{
+ min-height:50px;
+}
+.font-space{
+  letter-spacing: 1px;
+}
+.font-light{
+  font-weight: 200;
+}
+.logo{
+  font-size: 35px;
+  font-weight: bold;
+}
+.btn-home{
+  border:none;
+  float:none;
+  margin:0 auto;
+  max-width:200px;
+}
+.counter{
+  min-width:100%;
+  margin:0 auto;
+  font-size: 50px;
+  font-weight: bold;
+}
