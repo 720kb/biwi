@@ -35,7 +35,7 @@ body{
 .counter{
   min-width:100%;
   margin:0 auto;
-  line-height: 70px;
+  line-height: 55px;
   font-size: 40px;
   font-weight: bold;
 }
@@ -43,7 +43,7 @@ body{
   display: none;
 }
 #pay-why h1{
-  font-size: 90px;
+  font-size: 120px;
 }
 #pay-content{
   max-width: 500px;
