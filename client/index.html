@@ -22,10 +22,10 @@
         <div class="top top15 mobile"></div>
       </div>
     </div>
-    <div class="top top15"></div>
     <div class="top top15 desktop"></div>
   </div>
   <div id="pay-why" class="font-large">
+    <div class="top top15"></div>
     <h1 class="grey-text center-align">
       <i class="mdi-action-perm-scan-wifi"></i>
     </h1>
@@ -39,12 +39,12 @@
       </button>
     </div>
   </div>
-  <div id="pay-content" class="container hide">
+  <div id="pay-content" class="hide">
     <div class="top top15 desktop"></div>
     <div class="top top15 desktop"></div>
     <div class="row">
       <div class="col s12 m4 l4">
-        <img src="http://www.ekaterinawalter.com/wp-content/uploads/2013/11/qr_code_vote.jpg" alt="Scan and pay" class="responsive-img"/>
+        <img src="http://www.ekaterinawalter.com/wp-content/uploads/2013/11/qr_code_vote.jpg" alt="Scan and pay" class="responsive-img qr"/>
       </div>
       <div class="col s12 m8 l8 center-mobile">
         <h5>
@@ -67,17 +67,18 @@
       </div>
     </div>
   </div>
-  <div class="top top50 desktop"></div>
-  <div class="top top15 mobile"></div>
+  <div class="top top15"></div>
   <div class="top top15"></div>
   <h6 id="pay-loading" class="center-align grey-text font-light hide">
     Waiting for the paymnet ...
     <div class="top top15"></div>
   </h6>
   <h6 class="center-align grey-text">
-    <span class="pill">0 <small>MIN</small>  </span>
-    <span class="pill">0 <small>mBTC</small></span>
+    <span class="pill"><span id="min-count">0</span> <small>MIN</small>  </span>
+    <span class="pill"><span id="mbtc-count">0</span> <small>mBTC</small></span>
   </h6>
+  <div class="top top50"></div>
+  <div class="top top50"></div>
   <script src="bundle.js" charset="utf-8" type="text/javascript"></script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/materialize-css/bin/materialize.js"></script>
