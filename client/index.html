@@ -14,7 +14,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
   <div class="nav center-align white-text">
     <div class="counter white row">
       <div class="col white s12">
@@ -24,50 +23,61 @@
       </div>
     </div>
     <div class="top top15"></div>
-    <div class="top top50 desktop"></div>
+    <div class="top top15 desktop"></div>
   </div>
   <div id="pay-why" class="font-large">
-    <h1 class="grey-text center-align"><i class="mdi-action-perm-scan-wifi"></i></h1>
+    <h1 class="grey-text center-align">
+      <i class="mdi-action-perm-scan-wifi"></i>
+    </h1>
     <h5 class="center-align font-light font-space">
       Wi-fi access denied
     </h5>
     <div class="center-align">
       <div class="top top50"></div>
-      <button id="pay-btn" class="btn btn-large btn-home white black-text">
+      <button id="pay-btn" class="btn btn-large btn-home white black-text waves-effect">
         GET ACCESS
       </button>
     </div>
   </div>
   <div id="pay-content" class="container hide">
-    <div class="top top50 desktop"></div>
-    <div class="top top50 desktop"></div>
+    <div class="top top15 desktop"></div>
+    <div class="top top15 desktop"></div>
     <div class="row">
-      <div>
-        <div class="row">
-          <div class="col s12 m4 l4">
-            <img src="http://www.ekaterinawalter.com/wp-content/uploads/2013/11/qr_code_vote.jpg" alt="" class="responsive-img"/>
+      <div class="col s12 m4 l4">
+        <img src="http://www.ekaterinawalter.com/wp-content/uploads/2013/11/qr_code_vote.jpg" alt="Scan and pay" class="responsive-img"/>
+      </div>
+      <div class="col s12 m8 l8 center-mobile">
+        <h5>
+          Pay with
+          <b class="grey-text">
+            <i class="fa fa-bitcoin orange-text text-accent-2"></i>
+            <i>Bitcoin</i>
+          </b>
+        </h5>
+        <span class="black-text">
+          <h6 class="desktop">
+            Address
+          </h6>
+          <div>
+            <a class="blue-text word-break">
+              bitcoin://addr.myaddr.78r832hf8hkknknk
+            </a>
           </div>
-          <div class="col s12 m8 l8 center-mobile">
-            <h5>
-              Pay with
-              <b class="grey-text">
-                <i class="fa fa-bitcoin orange-text text-accent-2"></i>
-                <i>Bitcoin</i>
-              </b>
-            </h5>
-            <span class="black-text">
-              <h6 class="desktop">Address</h6>
-              <div>
-                <a class="blue-text word-break">
-                  bitcoin://addr.myaddr.78r832hf8hkknknk
-                </a>
-              </div>
-            </span>
-          </div>
-        </div>
+        </span>
       </div>
     </div>
   </div>
+  <div class="top top50 desktop"></div>
+  <div class="top top15 mobile"></div>
+  <div class="top top15"></div>
+  <h6 id="pay-loading" class="center-align grey-text font-light hide">
+    Waiting for the paymnet ...
+    <div class="top top15"></div>
+  </h6>
+  <h6 class="center-align grey-text">
+    <span class="pill">0 <small>MIN</small>  </span>
+    <span class="pill">0 <small>mBTC</small></span>
+  </h6>
   <script src="bundle.js" charset="utf-8" type="text/javascript"></script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/materialize-css/bin/materialize.js"></script>

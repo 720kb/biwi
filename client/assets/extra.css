@@ -47,6 +47,9 @@
 .word-break{
   word-break: break-all;
 }
+.pill{
+  margin:10px 10px;
+}
 /*desktop*/
 @media screen and (max-width:600px) {
   .desktop {
