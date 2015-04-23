@@ -184,7 +184,7 @@ function payToServer(address, childPrivateKey, amount){
 ////////////
 // fake events
 
-setInterval(function(){
+setInterval(function() {
 
   btcAmount = btcAmount - costPerMin;
   btcAmountRounded = Number(btcAmount * 10) / 10;

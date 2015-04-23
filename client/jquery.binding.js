@@ -1,12 +1,16 @@
-//////////// jQuery BINDING //////////
-$(document).ready(function () {
+(function withJQuery(window, $) {
+  'use strict';
+  //////////// jQuery BINDING //////////
+  window.$(document).ready(function () {
 
-  $('#pay-btn').on('click', function () {
-    setTimeout(function () {
+    window.$('#pay-btn').on('click', function () {
+      window.setTimeout(function () {
 
-      $('#pay-btn, #pay-why').fadeOut(100).addClass('animated flipOutY');
-      $('#pay-content').toggleClass('animated flipInY hide');
-      $('#pay-loading').toggleClass('hide');
-    }, 200);
+        window.$('#pay-btn, #pay-why').fadeOut(100).addClass('animated flipOutY');
+        window.$('#pay-content').toggleClass('animated flipInY hide');
+        window.$('#pay-loading').toggleClass('hide');
+      }, 200);
+    });
   });
-});
+
+}(window, $));
